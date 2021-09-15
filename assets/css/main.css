@@ -1,0 +1,30 @@
+* {
+  @apply font-sans;
+}
+
+.nav {
+  @apply flex bg-main-background2 fixed top-0 h-14 w-screen shadow-inner  border-main-accent z-10;
+}
+
+.nav-side {
+  @apply bg-main-background2 fixed top-14 h-full w-3/4 md:w-60 flex flex-col overflow-hidden shadow-inner pt-2 z-10;
+}
+.hide {
+  @apply block lg:hidden;
+}
+
+.nav .item {
+  @apply text-main-font p-3 text-lg hover:bg-main-background transition-colors mx-2;
+}
+
+.fas {
+  @apply text-main-accent2;
+}
+
+/* .content {
+  margin-left: calc(auto + )
+} */
+
+hr.divider {
+  @apply border-t border-main-background;
+}
