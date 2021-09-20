@@ -27,7 +27,6 @@
               rounded-lg
               truncate
             "
-            v-if="$nuxt.$route.path !== '/account/register'"
             ><span class="align-top"
               ><i class="fas fa-user-plus"></i>&nbsp;&nbsp;Sign Up</span
             ></NuxtLink
@@ -44,10 +43,12 @@
           <!-- USER IS AUTHENTICATED -->
           <Dropdown right class="mt-1 mr-4">
             <template #main>
-              <img
-                :src="`http://localhost:8000/images/headshots/${$auth.user.avatar.cache}.png`"
-                alt=""
-                class="h-12 rounded-lg"
+              <UserImage
+                headshot
+                rounded
+                :img="$auth.user.avatar.cache"
+                :show-online="$auth.user.isOnline"
+                size="12"
               />
             </template>
             <template #dropdown>

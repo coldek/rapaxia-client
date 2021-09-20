@@ -17,7 +17,7 @@
   @apply text-main-font p-3 text-lg hover:bg-main-background transition-colors mx-2;
 }
 
-.fas {
+.nav-side a .fas {
   @apply text-main-accent2;
 }
 
@@ -26,5 +26,14 @@
 } */
 
 hr.divider {
-  @apply border-t border-main-background;
+  @apply border-t my-2 border-main-background;
+}
+
+.heading-border {
+  @apply border-r-4 border-b-4 border-l-4
+        sm:border-l-0
+        rounded-br-lg rounded-bl-lg
+        sm:rounded-bl-none
+        text-main-accent2
+        border-main-background2;
 }

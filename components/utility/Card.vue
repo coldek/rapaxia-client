@@ -5,19 +5,17 @@
       border-main-accent border
       inline-block
       radius-2
-      p-10
+      p-3
       shadow-2xl
       rounded-lg
       overflow-hidden
       col-span-1
     "
   >
-    <div
-      class="table mx-auto text-3xl border-main-background px-5 border-b pb-3"
-      v-if="heading !== ''"
-    >
+    <div class="block table text-2xl pr-1" v-if="heading !== ''">
       {{ heading }}
     </div>
+    <hr class="divider my-2" v-if="heading !== ''" />
     <slot />
   </div>
 </template>

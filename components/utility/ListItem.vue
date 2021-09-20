@@ -35,4 +35,8 @@ export default {
 .button {
   @apply my-0.5 text-main-font w-full border-main-accent2 border-opacity-0 hover:bg-main-background hover:border-opacity-100 py-2 transition-colors;
 }
+
+.nuxt-link-exact-active {
+  @apply border-main-accent2;
+}
 </style>
