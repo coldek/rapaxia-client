@@ -1,10 +1,14 @@
 <template>
-  <div :class="`block h-${size} w-${size} relative`">
+  <div
+    class="block relative"
+    :style="{ height: size + 'px', width: size + 'px' }"
+  >
     <img
       :src="`http://localhost:8000/images/${
         headshot ? 'headshots' : 'body'
       }/${img}.png`"
-      :class="`${rounded ? 'rounded-full' : ''} h-${size} w-${size}`"
+      :class="`${rounded ? 'rounded-full' : ''}`"
+      :style="{ height: size + 'px', width: size + 'px' }"
       title="Avatar"
     />
     <div

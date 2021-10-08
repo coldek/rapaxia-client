@@ -5,25 +5,35 @@
         :img="user.avatar.cache"
         :show-online="user.isOnline"
         headshot
-        size="16"
+        size="50"
         rounded
       />
-      <div class="text-2xl ml-3 mt-1">{{ user.username }}</div>
-      <div class="text-2xl">test</div>
+      <div class="text-2xl ml-3 flex-grow">
+        {{ user.username }}
+        <hr class="divider" />
+        <span class="text-base"
+          ><i class="fas fa-quote-left text-xs text-main-background mr-2"></i
+          ><i>Among us</i
+          ><i class="fas fa-quote-right text-xs text-main-background ml-2"></i
+        ></span>
+      </div>
     </Card>
     <div class="lg:col-span-2 flex flex-col">
-      <Card class="mb-2"
-        ><UserImage :img="user.avatar.cache" title="Avatar"
+      <Card class="mb-2 text-center">
+        <UserImage :img="user.avatar.cache" title="Avatar"
       /></Card>
+      <Card heading="Currently wearing"> Under construction </Card>
     </div>
     <div class="md:col-span-2 xl:col-span-4 grid grid-cols-1 gap-1">
       <Card>
-        <Tabs :tabs="['Test', 'Test2']">
-          <template slot="Test"> Test </template>
-          <template slot="Test2"> Test2 </template>
+        <Tabs :tabs="['Info', 'Friends', 'Communities']">
+          <template slot="Info"> Test </template>
+          <template slot="Friends"> Test3 </template>
+          <template slot="Communities"> Test2 </template>
         </Tabs>
       </Card>
     </div>
+    <Card heading="Inventory" class="col-span-full"></Card>
   </Grid>
 </template>
 
@@ -35,8 +45,6 @@ export default {
   async asyncData({ params, $axios, error }) {
     try {
       const { data: user } = await $axios.get(`/users/${params.id}`)
-
-      console.log(user.username[user.username.length - 1])
 
       return {
         user,

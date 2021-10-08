@@ -1,8 +1,15 @@
 <template>
   <div>
-    <div class="flex">
-      <div v-for="slot in $props.tabs" :key="slot" @click="changeTab(slot)">
-        {{ slot }}
+    <div class="flex mb-2">
+      <div
+        :class="`flex-1 text-center text-xl border-main-accent2 border-opacity-0  hover:border-opacity-100 border-b-2 cursor-pointer ${
+          slot.isActive ? 'text-main-accent2' : ''
+        }`"
+        v-for="slot in slots"
+        :key="slot.title"
+        @click="changeTab(slot.title)"
+      >
+        {{ slot.title }}
       </div>
     </div>
 

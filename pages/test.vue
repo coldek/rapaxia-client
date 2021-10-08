@@ -5,7 +5,8 @@
 <script>
 export default {
   mounted() {
-    this.$modal.show('login')
+    console.log('test')
+    setTimeout(() => this.$notify('Invalid input.'), 2000)
   },
 }
 </script>

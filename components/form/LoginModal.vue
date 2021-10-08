@@ -2,8 +2,6 @@
   <modal name="login" height="auto" classes="text-white" adaptive>
     <Centered>
       <Card heading="Login">
-        <Error :errors="errors" />
-
         <Form :submit="submit">
           <Input placeholder="Username" @input="(val) => (username = val)" />
           <Input
@@ -22,7 +20,6 @@
 export default {
   data() {
     return {
-      errors: [],
       username: '',
       password: '',
       loading: false,
@@ -31,7 +28,7 @@ export default {
   methods: {
     async submit() {
       if (this.username.length === 0 || this.password.length === 0) {
-        this.errors = ['All fields are required.']
+        this.$notify('All fields are required.')
         return
       }
 
@@ -41,17 +38,20 @@ export default {
 
       let { username, password } = this
       try {
-        const oldRedirect = this.$auth.options.redirect
-        this.$auth.options.redirect = false
+        const protectedRoutes = ['/']
+        if (!protectedRoutes.includes(this.$nuxt.$route.path)) {
+          const oldRedirect = this.$auth.options.redirect
+          this.$auth.options.redirect = false
+          this.$auth.options.rewriteRedirects = oldRedirect
+        }
         let data = await this.$auth.loginWith('local', {
           data: {
             username,
             password,
           },
         })
-        this.$auth.options.rewriteRedirects = oldRedirect
       } catch ({ response }) {
-        this.errors = response.data.message
+        response.data.message.forEach((error) => this.$notify(error))
       }
 
       this.loading = false

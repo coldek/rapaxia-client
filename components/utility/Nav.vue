@@ -48,11 +48,13 @@
                 rounded
                 :img="$auth.user.avatar.cache"
                 :show-online="$auth.user.isOnline"
-                size="12"
+                size="48"
               />
             </template>
             <template #dropdown>
-              <ListItem right>Profile</ListItem>
+              <ListItem right :to="`/profile/${$auth.user.id}`"
+                >Profile</ListItem
+              >
               <ListItem right>Settings</ListItem>
               <hr class="divider" />
               <ListItem right @click="$auth.logout()">Logout</ListItem>
@@ -80,6 +82,9 @@
           <!-- USER IS AUTHENTICATED -->
           <ListItem to="/dashboard" class="ml-3"
             ><i class="fas fa-home"></i>&nbsp;&nbsp;Dashboard</ListItem
+          >
+          <ListItem to="/friends" class="ml-3"
+            ><i class="fas fa-user-friends"></i>&nbsp;&nbsp;Friends</ListItem
           >
         </template>
         <hr class="divider" />
