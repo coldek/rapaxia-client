@@ -37,7 +37,17 @@
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    async fetchNotifications() {
+      let { data } = await this.$axios.get('/account/pull')
+    },
+  },
+  async mounted() {
+    await this.fetchNotifications()
+    setInterval(async () => await this.fetchNotifications(), 30000)
+  },
+}
 </script>
 
 <style>

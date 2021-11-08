@@ -4,9 +4,10 @@
       <slot name="main" />
     </button>
     <div
-      :class="`dropdown-content absolute shadow-2xl bg-main-background2 w-32 radius rounded-lg${
+      :class="`dropdown-content absolute shadow-2xl bg-main-background2 radius rounded-lg${
         show ? `` : ` hidden`
       }${right ? ` left-auto right-0 text-center` : ``}`"
+      :style="{ width: width + 'px' }"
     >
       <slot name="dropdown" />
     </div>
@@ -17,6 +18,10 @@
 export default {
   props: {
     right: Boolean,
+    width: {
+      type: String,
+      default: '150',
+    },
   },
   data() {
     return {

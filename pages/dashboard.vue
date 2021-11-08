@@ -11,12 +11,7 @@
       <div class="md:col-span-2 xl:col-span-4 grid grid-cols-1 gap-1">
         <Card heading="Friends">
           <div class="flex flex-row flex-nowrap overflow-x-auto mt-4">
-            <UserCard
-              :user="$auth.user"
-              v-for="index in Array(3)"
-              :key="index"
-              class="mx-2"
-            />
+            <FriendMany :user="$auth.user" />
           </div>
         </Card>
         <Card heading="Friend Activity">test</Card>

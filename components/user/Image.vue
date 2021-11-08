@@ -4,7 +4,7 @@
     :style="{ height: size + 'px', width: size + 'px' }"
   >
     <img
-      :src="`http://localhost:8000/images/${
+      :src="`${$config.imageServer}avatars/${
         headshot ? 'headshots' : 'body'
       }/${img}.png`"
       :class="`${rounded ? 'rounded-full' : ''}`"

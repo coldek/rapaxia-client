@@ -64,6 +64,14 @@
           <NuxtLink :to="`/profile/${$auth.user.id}`" class="item">{{
             $auth.user.username
           }}</NuxtLink>
+
+          <Dropdown right width="200" class="mt-2">
+            <template #main>
+              <span class="text-3xl text-white"
+                ><i class="far fa-bell"></i></span
+            ></template>
+            <template #dropdown>dddd</template>
+          </Dropdown>
         </template>
       </div>
     </div>
